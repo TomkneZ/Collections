@@ -1,0 +1,32 @@
+﻿@model LoginViewModel
+<head>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+</head>
+<body>
+    <div>
+        <div class="div-box">
+            <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl" class="ui-form">
+                <h3>Sign in</h3>
+                <div asp-validation-summary="All"></div>
+                <div class="form-row">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" type="text" required autocomplete="off" />
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="form-row">
+                    <label asp-for="Password" type="password" required autocomplete="off"></label>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <!-- <div>
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe" />
+
+                </div>-->
+                <div>
+                    <input type="submit" value="SignIn" />
+                </div>
+            </form>            
+        </div>
+    </div>
+</body>

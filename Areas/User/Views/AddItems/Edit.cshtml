@@ -1,0 +1,144 @@
+﻿@model Item
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<div>
+    <div>
+        <form asp-area="User" asp-controller="AddItems" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="itemFields" />
+            <input type="hidden" asp-for="CollectionId" />
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Tag"></label>
+                <input asp-for="Tag" />
+                <span asp-validation-for="Tag"></span>
+            </div>
+            @if ((Model.itemFields & 1) == 1)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Num1Name"]</label>
+                    <input asp-for="Num1Value" />
+                    <span asp-validation-for="Num1Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 2) == 2)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Num2Name"]</label>
+                    <input asp-for="Num2Value" />
+                    <span asp-validation-for="Num2Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 4) == 4)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Num3Name"]</label>
+                    <input asp-for="Num3Value" />
+                    <span asp-validation-for="Num3Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 8) == 8)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Input1Name"]</label>
+                    <input asp-for="Input1Value" />
+                    <span asp-validation-for="Input1Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 16) == 16)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Input2Name"]</label>
+                    <input asp-for="Input2Value" />
+                    <span asp-validation-for="Input2Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 32) == 32)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Input3Name"]</label>
+                    <input asp-for="Input3Value" />
+                    <span asp-validation-for="Input3Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 64) == 64)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Textarea1Name"]</label>
+                    <input asp-for="Textarea1Value" />
+                    <span asp-validation-for="Textarea1Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 128) == 128)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Textarea2Name"]</label>
+                    <input asp-for="Textarea2Value" />
+                    <span asp-validation-for="Textarea2Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 256) == 256)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Textarea3Name"]</label>
+                    <input asp-for="Textarea3Value" />
+                    <span asp-validation-for="Textarea3Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 512) == 512)
+            {
+                <div class="div-box">
+                   <label>@ViewData["Date1Name"]</label>
+                   <input asp-for="Date1Value" />
+                    <span asp-validation-for="Date1Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 1024) == 1024)
+            {
+                <div class="div-box">                    
+                    <label>@ViewData["Date2Name"]</label>
+                    <input asp-for="Date2Value" />
+                    <span asp-validation-for="Date2Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 2048) == 2048)
+            {
+                <div class="div-box">                   
+                    <label>@ViewData["Date3Name"]</label>
+                    <input asp-for="Date3Value" />
+                    <span asp-validation-for="Date3Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 4096) == 4096)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Checkbox1Name"]</label>
+                    <input asp-for="Checkbox1Value" />
+                    <span asp-validation-for="Checkbox1Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 8192) == 8192)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Checkbox2Name"]</label>
+                    <input asp-for="Checkbox2Value" />
+                    <span asp-validation-for="Checkbox2Value"></span>
+                </div>
+            }
+            @if ((Model.itemFields & 16384) == 16384)
+            {
+                <div class="div-box">
+                    <label>@ViewData["Checkbox3Name"]</label>
+                    <input asp-for="Checkbox3Value" />
+                    <span asp-validation-for="Checkbox3Value"></span>
+                </div>
+            }
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</div>

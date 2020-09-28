@@ -1,0 +1,23 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h3>Edit User Information</h3>
+<form asp-area="Admin" asp-controller="Home" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <div asp-validation-summary="All"></div>
+    <div class="div-box">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="div-box">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <input type="submit" value="Save" />
+</form>
+

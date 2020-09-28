@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model ChangeRoleModel
+
+<head>
+    <title>Edit role</title>
+</head>
+
+<h3> Edit role for @Model.UserName</h3>
+<div class="div-box">
+    <form asp-action="EditRole" method="post">
+        <input type="hidden" name="userId" value="@Model.UserId" />
+        <div class="form-group">
+            @foreach (IdentityRole r in Model.AllRoles)
+            {
+                <input type="radio" name="role" value="@r.Name"
+                       @(Model.UserRoles.Contains(r.Name) ? "checked=\"checked\"" : "") />@r.Name<br />
+
+                }
+        </div>
+        <button type="submit" class="btn-block btn-primary">Save</button>
+    </form>
+</div>

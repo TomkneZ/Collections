@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewData["Title"] = "Admin area";
+}
+    <script src="https://kit.fontawesome.com/163cdcd962.js" crossorigin="anonymous"></script>
+<div>
+    <div>
+        <h3>All users</h3>
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (var user in Model)
+                {
+                <div>
+                    <a asp-area="Admin" asp-controller="" asp-action="" asp-route-id="@user.Id">Block</a>
+                    |
+                    <form style="display: inline-block;" id="form-@user.Id" asp-area="Admin" asp-controller="Home" asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@user.Id">
+                        <a href="#" onclick="document.getElementById('form-@user.Id').submit();">Delete</a>
+                    </form>
+                    |
+                    <a asp-area="Admin" asp-controller="Home" asp-action="EditRole" asp-route-id="@user.Id">Edit access rights</a>
+                    |
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Edit" asp-route-id="@user.Id">@user.UserName</a>
+                    |
+                    <a asp-area="Admin" asp-controller="ServiceCollections" asp-action="Index" asp-route-id="@user.Id">Collections</a>
+                </div>
+                }
+            </div>
+        }
+
+    </div>
+    <div class="div-box">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <input type="submit" value="Sign out" />
+        </form>
+    </div>
+</div>

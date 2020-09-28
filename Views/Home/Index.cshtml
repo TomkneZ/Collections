@@ -1,0 +1,92 @@
+﻿@model MainPageViewModel
+<h3>Bigest Collections</h3>
+<div class="div-box">
+<ul class="big-image-list">
+    @foreach (Collection entity in Model.bigestCollections)
+    {
+        <li>            
+            <img src="~/images/@entity.TitleImagePath" alt="" class="left" />            
+            <h4>@entity.Title</h4>
+            <h6>Theme: @entity.Theme</h6>
+            <p>@entity.shortDescription</p>
+        </li>
+    }
+</ul>
+</div>
+<h3>Latest Items</h3>
+<div class="div-box">
+    <table width="100%" cellpadding="5">
+
+        @foreach (Item i in Model.latestItems)
+        {
+        <tr>
+            <td>
+                @i.Name
+            </td>
+            <td>
+                @i.Tag
+            </td>
+            @if ((i.itemFields & 1) == 1)
+            {
+                <td>@i.Num1Value</td>
+            }
+            @if ((i.itemFields & 2) == 2)
+            {
+                <td>@i.Num2Value</td>
+            }
+            @if ((i.itemFields & 4) == 4)
+            {
+                <td>Num3Value</td>
+            }
+            @if ((i.itemFields & 8) == 8)
+            {
+                <td>@i.Input1Value</td>
+            }
+            @if ((i.itemFields & 16) == 16)
+            {
+                <td>@i.Input2Value</td>
+            }
+            @if ((i.itemFields & 32) == 32)
+            {
+                <td>@i.Input3Value</td>
+            }
+            @if ((i.itemFields & 64) == 64)
+            {
+                <td>@i.Textarea1Value</td>
+            }
+            @if ((i.itemFields & 128) == 128)
+            {
+                <td>@i.Textarea2Value</td>
+            }
+            @if ((i.itemFields & 256) == 256)
+            {
+                <td>@i.Textarea3Value</td>
+            }
+            @if ((i.itemFields & 512) == 512)
+            {
+                <td>@i.Date1Value</td>
+            }
+            @if ((i.itemFields & 1024) == 1024)
+            {
+                <td>@i.Date2Value</td>
+            }
+            @if ((i.itemFields & 2048) == 2048)
+            {
+                <td>@i.Date3Value</td>
+            }
+            @if ((i.itemFields & 4096) == 4096)
+            {
+                <td>@i.Checkbox1Value</td>
+            }
+            @if ((i.itemFields & 8192) == 8192)
+            {
+                <td>@i.Checkbox2Value</td>
+            }
+            @if ((i.itemFields & 16384) == 16384)
+            {
+                <td>@i.Checkbox3Value</td>
+            }           
+        </tr>
+        }
+    </table>
+</div>

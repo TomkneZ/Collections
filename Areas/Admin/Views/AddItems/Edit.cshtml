@@ -1,0 +1,41 @@
+﻿@model ServiceItem
+@{
+    string strTitle = "Add/Edit Collection";
+    ViewBag.Title = strTitle;
+}
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
+<div>    
+    <div>
+        <form asp-area="Admin" asp-controller="ServiceItems" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ownerId" />
+            <input type="hidden" asp-for="TitleImagePath" />
+
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="shortDescription"></label>
+                <input asp-for="shortDescription" />
+                <span asp-validation-for="shortDescription"></span>
+            </div>       
+            <div>
+                <label asp-for="Theme">Collection's theme</label>
+                <select asp-for="Theme" asp-items="Html.GetEnumSelectList<Collections.Domain.Entities.ServiceItem.psblThemes>()"></select>
+            </div>
+            <div class="div-box">
+                <label asp-for="TitleImagePath"></label>
+                <input type="file" name="titleImageFile" id="titleImageFile" />
+                <div>
+                    <img class="img-block" src="~/images/@Model.TitleImagePath" />
+                </div>
+            </div>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</div>

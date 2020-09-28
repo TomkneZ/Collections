@@ -1,0 +1,113 @@
+﻿@model Collection
+@{
+    string strTitle = "Add";
+    ViewBag.Title = strTitle;
+}
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<div>    
+    <div>
+        <form asp-area="User" asp-controller="Home" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ownerId" />
+            <input type="hidden" asp-for="TitleImagePath" />
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="shortDescription"></label>
+                <input asp-for="shortDescription" />
+                <span asp-validation-for="shortDescription"></span>
+            </div>
+            <div>
+                <label asp-for="Theme">Collection's theme</label>
+                <select asp-for="Theme" asp-items="Html.GetEnumSelectList<Collection.psblThemes>()"></select>
+            </div>
+            <div class="div-box">
+                <label asp-for="TitleImagePath"></label>
+                <input type="file" name="titleImageFile" id="titleImageFile" />
+                <div>
+                    <img class="img-block" src="~/images/@Model.TitleImagePath" />
+                </div>
+            </div>
+            <div class="div-box">
+                <label asp-for="Num1Name"></label>
+                <input asp-for="Num1Name" />
+                <span asp-validation-for="Num1Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Num2Name"></label>
+                <input asp-for="Num2Name" />
+                <span asp-validation-for="Num2Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Num3Name"></label>
+                <input asp-for="Num3Name" />
+                <span asp-validation-for="Num3Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Input1Name"></label>
+                <input asp-for="Input1Name" />
+                <span asp-validation-for="Input1Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Input2Name"></label>
+                <input asp-for="Input2Name" />
+                <span asp-validation-for="Input2Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Input3Name"></label>
+                <input asp-for="Input3Name" />
+                <span asp-validation-for="Input3Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Textarea1Name"></label>
+                <input asp-for="Textarea1Name" />
+                <span asp-validation-for="Textarea1Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Textarea2Name"></label>
+                <input asp-for="Textarea2Name" />
+                <span asp-validation-for="Textarea2Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Textarea3Name"></label>
+                <input asp-for="Textarea3Name" />
+                <span asp-validation-for="Textarea3Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Date1Name"></label>
+                <input asp-for="Date1Name" />
+                <span asp-validation-for="Date1Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Date2Name"></label>
+                <input asp-for="Date2Name" />
+                <span asp-validation-for="Date2Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Date3Name"></label>
+                <input asp-for="Date3Name" />
+                <span asp-validation-for="Date3Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Checkbox1Name"></label>
+                <input asp-for="Checkbox1Name" />
+                <span asp-validation-for="Checkbox1Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Checkbox2Name"></label>
+                <input asp-for="Checkbox2Name" />
+                <span asp-validation-for="Checkbox2Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Checkbox3Name"></label>
+                <input asp-for="Checkbox3Name" />
+                <span asp-validation-for="Checkbox3Name"></span>
+            </div>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</div>
